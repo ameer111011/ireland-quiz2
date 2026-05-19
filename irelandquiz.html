@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ireland Quiz 🍀</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #0b6623, #1f8f3a);
+        color: white;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+    }
+
+    .question {
+        margin: 25px 0;
+        text-align: left;
+    }
+
+    .question h3 {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin: 8px 0;
+        background: rgba(255,255,255,0.15);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    label:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    button {
+        background: white;
+        color: #0b6623;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    #result {
+        margin-top: 30px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .flag {
+        font-size: 2rem;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="flag">🇮🇪 ☘️ 🇮🇪</div>
+    <h1>How Well Do You Know Ireland?</h1>
+    <p class="subtitle">Take this fun quiz and test your knowledge!</p>
+
+    <form id="quizForm">
+
+        <div class="question">
+            <h3>1. What is the capital city of Ireland?</h3>
+            <label><input type="radio" name="q1" value="0"> Cork</label>
+            <label><input type="radio" name="q1" value="1"> Dublin</label>
+            <label><input type="radio" name="q1" value="0"> Galway</label>
+        </div>
+
+        <div class="question">
+            <h3>2. What is Ireland known as?</h3>
+            <label><input type="radio" name="q2" value="1"> The Emerald Isle</label>
+            <label><input type="radio" name="q2" value="0"> The Golden Land</label>
+            <label><input type="radio" name="q2" value="0"> The Lucky Kingdom</label>
+        </div>
+
+        <div class="question">
+            <h3>3. Which famous wrestler is from Ireland?</h3>
+            <label><input type="radio" name="q3" value="1"> Becky Lynch</label>
+            <label><input type="radio" name="q3" value="0"> John Cena</label>
+            <label><input type="radio" name="q3" value="0"> Roman Reigns</label>
+        </div>
+
+        <div class="question">
+            <h3>4. Which color is strongly associated with Ireland?</h3>
+            <label><input type="radio" name="q4" value="1"> Green</label>
+            <label><input type="radio" name="q4" value="0"> Blue</label>
+            <label><input type="radio" name="q4" value="0"> Purple</label>
+        </div>
+
+        <div class="question">
+            <h3>5. What currency does Ireland use?</h3>
+            <label><input type="radio" name="q5" value="0"> Dollar</label>
+            <label><input type="radio" name="q5" value="1"> Euro</label>
+            <label><input type="radio" name="q5" value="0"> Pound</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">
+            Submit Quiz ☘️
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function checkAnswers() {
+
+    let score = 0;
+
+    const answers = document.querySelectorAll('input[type="radio"]:checked');
+
+    answers.forEach((answer) => {
+        score += Number(answer.value);
+    });
+
+    let message = "";
+
+    if(score === 5){
+        message = "🍀 WOW! You got 5/5! Ireland expert!";
+    }
+    else if(score >= 3){
+        message = "☘️ Nice! You got " + score + "/5!";
+    }
+    else{
+        message = "🇮🇪 You got " + score + "/5! Try again!";
+    }
+
+    document.getElementById("result").innerHTML = message;
+}
+</script>
+
+</body>
+</html>
